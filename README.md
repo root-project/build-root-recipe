@@ -34,7 +34,9 @@ Alternatively, an automated [Python build script](launch_build.py) is available.
 This can help you streamline the building process:
 
 ```bash
-$: python launch_build.py -h
+python launch_build.py -h
+```
+```text
 usage: launch_build.py [-h] [-j NJOBS] [-n NAME] (-m {default,debug,relwithdebinfo,minimal} | -c [CONFIG ...])
 
 options:
@@ -82,8 +84,8 @@ either one of the already available modes (see the `m` option) or the flags
 passed via the `c` option. For example:
 
 ```bash
-$: python launch_build.py -m relwithdebinfo
-$: python launch_build.py -n mybuild -c="-Dminimal=ON -DCMAKE_BUILD_TYPE=RelWithDebInfo"
+python launch_build.py -m relwithdebinfo
+python launch_build.py -n mybuild -c="-Dminimal=ON -DCMAKE_BUILD_TYPE=RelWithDebInfo"
 ```
 
 ### Activating ROOT in your environment after installation
@@ -92,7 +94,7 @@ After the CMake build has finished without errors, you can set up your environme
 to use the ROOT installation you just created via a `thisroot` script, for
 example on a Unix system with the bash shell:
 
-```
-$: source <build_or_install_dir>/bin/thisroot.sh
+```sh
+source <build_or_install_dir>/bin/thisroot.sh
 ```
 
