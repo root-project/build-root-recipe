@@ -1,7 +1,3 @@
-# Note
-
-This repository is not maintained anymore. Please refer to https://github.com/root-project/build-root-recipe.
-
 # General guidelines and recipes to create a development environment with ROOT
 
 Developing ROOT requires being able to build the project from source and knowing
@@ -39,19 +35,25 @@ This can help you streamline the building process:
 
 ```bash
 $: python launch_build.py -h
-usage: launch_build.py [-h] [-j NJOBS] [-n NAME] (-m {default,debug,relwithdebinfo,minimal} | -c [CONFIG ...])
+usage: launch_build.py [-h] [-j NJOBS] [-n NAME] [-m {default,debug,relwithdebinfo,minimal} | -c [CONFIG ...]] [--install]
+                       [-g GENERATOR] [--print-configs]
 
-options:
+optional arguments:
   -h, --help            show this help message and exit
   -j NJOBS              As in 'cmake -jNJOBS'
   -n NAME               The name of this build. If specified, it takes precedence over the automatic choice for a name
+  --install             Also install ROOT to the install directory
+  -g GENERATOR          Specify a CMake generator for the build, e.g. "Unix MakeFiles", "Ninja" etc.
+  --print-configs       Print the available CMake configurations and exit
 
 CMake configuration [required]:
-  The 'mode' option allows to choose one of the predefined CMake configuration strings. Otherwise, specify a custom string via the 'config' option
+  The 'mode' option allows to choose one of the predefined CMake configuration strings. Otherwise, specify a custom
+  string via the 'config' option
 
   -m {default,debug,relwithdebinfo,minimal}
                         One of the predefined CMake configuration modes
-  -c [CONFIG ...]       Custom list of CMake options. Specify this option with an equal sign and quoted, as in: '-c="-DOpt1=ON -DOpt2=OFF"'
+  -c [CONFIG ...]       Custom list of CMake options. Specify this option with an equal sign and quoted, as in:
+                        '-c="-DOpt1=ON -DOpt2=OFF"'
 ```
 
 It creates the following directories in the current working directory:
